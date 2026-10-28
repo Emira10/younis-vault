@@ -11,3 +11,16 @@
 .v18-start{display:flex;flex-direction:column;gap:10px;max-width:320px;width:100%;margin:6px auto 0}
 .v18-start .btn{width:100%}
 .v18-find{width:100%;margin-top:10px}
+
+/* v21 — layout fix (phone + laptop).
+   Bug: .app is a grid whose content column was "1fr" (= minmax(auto,1fr)). The wallet cards row (#wallets, each card min-width 220px)
+   made <main> insist on ~1100px, so on a phone the page was laid out ~1100px wide and shrunk/scrolled sideways,
+   and on a laptop the right side was pushed off-screen. min-width:0 lets the column shrink to the screen;
+   the wallet row then scrolls sideways inside itself, as draft.css intended. */
+main{min-width:0}
+.app{grid-template-columns:250px minmax(0,1fr)}
+@media(max-width:820px){.app{grid-template-columns:minmax(0,1fr)}}
+/* the tables of the Design System screen were ~440px wide: on a phone they now scroll inside themselves */
+@media(max-width:600px){.tt{display:block;overflow-x:auto;max-width:100%}}
+/* Arabic on a phone: the big balance ("184,507.83 SEK" in Cairo at 44px) was ~36px wider than the screen and pushed the whole page sideways */
+@media(max-width:820px){html[lang=ar] .total{font-size:clamp(26px,8.6vw,44px)}.top>div{min-width:0;max-width:100%}}
