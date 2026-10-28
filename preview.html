@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050d24">
+<title>Younis &amp; Co. — Mobile preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{min-height:100vh;display:grid;place-items:center;padding:20px;color:#eef1f8;font:15px/1.5 Inter,system-ui,sans-serif;background:radial-gradient(1000px 700px at 50% 0%,#12275c,#050d24 65%) fixed}
+.stage{display:flex;gap:64px;align-items:center;justify-content:center;flex-wrap:wrap}
+.info{max-width:330px}
+.info img{width:190px;display:block;margin-bottom:18px}
+.info h1{font:600 34px/1.1 'Cormorant Garamond',serif;color:#f3d97a;margin-bottom:8px}
+.info p,.info li{color:#8f9bbd;font-size:14px}.info ul{padding-inline-start:18px;margin:12px 0 18px}.info li{margin-bottom:6px}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+button,a.b{font:inherit;color:#f3d97a;background:none;border:1px solid rgba(212,175,55,.35);border-radius:10px;padding:8px 14px;cursor:pointer;text-decoration:none}
+button.on{background:rgba(212,175,55,.14);border-color:#d4af37}
+a.b{display:inline-block;background:linear-gradient(135deg,#d4af37,#f3d97a);color:#1a1405;font-weight:600;border:0}
+:focus-visible{outline:2px solid #f3d97a;outline-offset:2px}
+.fit{position:relative}
+.phone{position:absolute;top:0;left:0;transform-origin:top left;border-radius:64px;padding:20px;background:linear-gradient(145deg,#2c2f3b,#0a0b0f);box-shadow:0 0 0 2px #3b3e4c,0 40px 80px rgba(0,0,0,.6)}
+.screen{position:relative;border-radius:46px;overflow:hidden;background:#050d24}
+.sbar{position:absolute;top:0;left:0;right:0;height:44px;display:flex;justify-content:space-between;align-items:center;padding:6px 30px 0;font-weight:600;font-size:14px;background:#050d24;z-index:2}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:118px;height:32px;border-radius:20px;background:#000;z-index:3}
+iframe{position:absolute;left:0;top:44px;width:100%;border:0;display:block;background:#050d24}
+.home{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:136px;height:5px;border-radius:5px;background:rgba(255,255,255,.55);z-index:3;pointer-events:none}
+@media(max-width:760px){.phone{display:none}.fit{display:none}.stage{gap:0}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="info">
+    <img src="icons/logo.png" alt="Younis &amp; Co.">
+    <h1>Mobile preview</h1>
+    <p>Draft of the Younis &amp; Co. digital wallet, shown as it looks on a phone. Demo data only.</p>
+    <ul>
+      <li>Demo login: <b>demo@younis.co</b> / <b>demo1234</b></li>
+      <li>Install it like an app: open this site on your phone, then <b>Share → Add to Home Screen</b> (iPhone) or the <b>Install</b> prompt (Android).</li>
+    </ul>
+    <div class="btns" role="group" aria-label="Device size"><button id="d1" class="on">iPhone 390 × 844</button><button id="d2">Android 360 × 800</button></div>
+    <a class="b" href="index.html">Open full app</a>
+  </div>
+  <div class="fit" id="fit"><div class="phone" id="phone"><div class="screen" id="screen"><div class="island"></div><div class="sbar"><span>9:41</span><span aria-hidden="true">5G &nbsp;100%</span></div><iframe id="app" src="index.html" title="Younis &amp; Co. wallet app"></iframe><div class="home"></div></div></div></div>
+</div>
+<script>
+const $=s=>document.querySelector(s);let W=390,H=844;
+function fit(){
+  const pw=W+40,ph=H+40,s=Math.min(1,(innerHeight-40)/ph);
+  $('#phone').style.cssText=`width:${pw}px;height:${ph}px;transform:scale(${s})`;
+  $('#screen').style.cssText=`width:${W}px;height:${H}px`;
+  $('#app').style.height=(H-44)+'px';
+  $('#fit').style.cssText=`width:${pw*s}px;height:${ph*s}px`;
+}
+function dev(w,h,id){W=w;H=h;$('#d1').classList.toggle('on',id==='d1');$('#d2').classList.toggle('on',id==='d2');fit()}
+$('#d1').onclick=()=>dev(390,844,'d1');$('#d2').onclick=()=>dev(360,800,'d2');
+addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+/* fixes.css (v16) — إصلاح قلب البطاقة على كل المتصفحات */
+.ycard .cin{-webkit-transform-style:preserve-3d;will-change:transform}
+.ycard .face.front{transform:rotateY(0deg) translateZ(.5px)}
+.ycard .face.back{transform:rotateY(180deg) translateZ(.5px)}
+.ycard.frozen .face{filter:none}
+.ycard.frozen{filter:grayscale(1) brightness(.55)}
+.ycard:hover{transform:none}
+@media (hover:hover) and (pointer:fine){.ycard:hover{transform:translateY(-4px)}}
+.cflip .btn{width:44px;height:44px;display:grid;place-items:center;padding:0;touch-action:manipulation}
+@media (prefers-reduced-motion:reduce){.ycard .cin{transition:none}}
+
+/* v17 — إصلاح خط قلب البطاقة: كلاس القلب .bk في premium.css يتعارض مع .bk (صف البنك) في draft.css
+   فكان يحوّل البطاقة إلى flex مع padding وحدّ فتنهار إلى خط. هنا نلغي تأثير تعارض draft.css على البطاقة فقط. */
+.ycard.bk{display:block;align-items:normal;gap:0;padding:0;border:0;border-radius:0;margin-top:0}

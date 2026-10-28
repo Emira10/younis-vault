@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050d24">
+<title>Younis &amp; Co. — Wireframes, Flows &amp; Timeline</title>
+<style>
+:root{--navy:#050d24;--navy2:#0b1840;--line:rgba(212,175,55,.3);--gold:#d4af37;--gold2:#f3d97a;--ink:#eef1f8;--mut:#8f9bbd;--ok:#5fcf9a;--bad:#ff7b7b;--wf:#1a2650;--wf2:#2a3868}
+*{box-sizing:border-box;margin:0}
+body{background:radial-gradient(1000px 600px at 50% 0,#12275c,var(--navy) 60%) fixed;color:var(--ink);font:15px/1.55 Inter,Cairo,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",sans-serif;padding:24px 16px 80px}
+main{max-width:1180px;margin:auto}
+h1{font:600 36px/1.1 "Cormorant Garamond",Georgia,serif;color:var(--gold2)}h2{font:600 26px/1.2 "Cormorant Garamond",Georgia,serif;color:var(--gold2);margin:38px 0 6px}
+p.s{color:var(--mut);max-width:760px}.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
+a.b,button{font:inherit;color:var(--gold2);background:none;border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer;text-decoration:none}
+.note{border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-top:14px;background:rgba(255,255,255,.03);color:var(--mut)}.note b{color:var(--ink)}
+/* flows */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0}
+.n{border:1px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--navy2);font-size:13px;text-align:center;min-width:92px}
+.n.opt{border-style:dashed}.n.ok{border-color:var(--ok);color:var(--ok)}.n.ex{border-color:#e0a43a;color:#e0a43a}
+.ar{display:block;color:var(--mut);font-size:12px}.a{color:var(--gold);font-size:18px}[dir=rtl] .a{transform:scaleX(-1)}
+.branch{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:10px}
+.bx{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--navy2)}.bx h4{color:var(--gold2);font-weight:600;margin-bottom:6px}
+/* wireframes */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;margin-top:16px}
+.ph{border:2px solid var(--wf2);border-radius:26px;padding:12px 10px 14px;background:#070f2c;display:flex;flex-direction:column;gap:7px;min-height:380px}
+.ph.dark{background:#000;border-color:#5b4a14}
+.ph .cap{font-size:12px;color:var(--gold2);text-align:center;margin-bottom:2px}
+.e{border-radius:8px;background:var(--wf);padding:7px 9px;font-size:11px;color:#b8c2e0}
+.e.h{background:none;color:var(--ink);font-weight:600;font-size:13px;padding:2px 2px}
+.e.btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1405;text-align:center;font-weight:700}
+.e.btn2{background:none;border:1px solid var(--line);color:var(--gold2);text-align:center}
+.e.img{height:70px;border:1px dashed var(--gold2);background:none;display:grid;place-items:center}
+.e.face{height:80px;width:80px;border-radius:50%;margin:auto;border:1px dashed var(--gold2);background:none;display:grid;place-items:center}
+.e.free{border:1px solid var(--ok);color:var(--ok);background:none;font-weight:600}
+.e.warn{border:1px solid #e0a43a;color:#e0a43a;background:none}
+.e.red{background:#d32f2f;color:#fff;text-align:center;font-weight:700;padding:14px 8px}
+.e.skip{background:none;color:var(--gold2);text-align:end;text-decoration:underline}
+.e.row{display:flex;justify-content:space-between;gap:6px}.e.chips{display:flex;gap:5px;overflow:hidden;background:none;padding:0}.e.chips i{font-style:normal;background:var(--wf);border-radius:8px;padding:6px 8px;white-space:nowrap}
+.e.card{height:62px;background:linear-gradient(135deg,#12275c,#8b95ad);color:#fff;font-weight:700}.e.card.v{background:linear-gradient(135deg,#1b2a5a,#d4af37)}.e.card.k{background:linear-gradient(135deg,#050505,#2a2a2a 55%,#d4af37);color:var(--gold2);box-shadow:inset 0 0 0 1px var(--gold)}
+/* timeline */
+table{width:100%;border-collapse:collapse;margin-top:12px}th,td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:start;vertical-align:top;font-size:14px}th{color:var(--gold2);font-weight:600}
+td small{color:var(--mut);display:block}
+.bar{height:10px;border-radius:6px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.gantt{display:grid;grid-template-columns:150px repeat(15,1fr);gap:4px;align-items:center;margin-top:12px;font-size:12px}
+.gantt .h{color:var(--mut);text-align:center}.gantt .l{color:var(--ink)}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><div><h1>Younis &amp; Co. — Wireframes, Flows &amp; Timeline</h1><p class="s">Low-fidelity structure of every screen in the brief, the two key decision flows, and a proposed schedule for the first draft.<span class="ar">المخططات الهيكلية لكل شاشات البريف، وتدفقان رئيسيان، وجدول زمني مقترح للمسودة الأولى.</span></p></div><div><a class="b" href="index.html">← App</a> <button id="dir">RTL / LTR</button></div></div>
+
+<div class="note"><b>Scope note · ملاحظة:</b> this page is a structural wireframe set built inside the project. It is <b>not</b> a Figma file — the Figma wireframes, high-fidelity designs and linked prototype listed in the brief are still to be produced (see the timeline). The working app in this folder is the interactive reference for them. <span class="ar">هذه الصفحة مخططات هيكلية ضمن المشروع، وليست ملف Figma. ملف Figma والتصاميم عالية الدقة والبروتوتايب المترابط ما زالت مطلوبة (انظر الجدول الزمني). التطبيق العامل في هذا المجلد هو المرجع التفاعلي لها.</span></div>
+
+<h2>1 · Onboarding &amp; compliance flow <span class="ar" style="display:inline">· رحلة التسجيل والامتثال</span></h2>
+<div class="flow" id="f1"></div>
+<div class="branch">
+  <div class="bx"><h4>Passport <span class="ar">جواز السفر</span></h4>Scan passport → continue.</div>
+  <div class="bx"><h4>National ID <span class="ar">البطاقة الوطنية</span></h4>Scan front → scan back → continue.</div>
+  <div class="bx"><h4>Residency + Passport <span class="ar">الإقامة + الجواز</span></h4>Scan residency card first → scan passport (mandatory second step) → continue.</div>
+</div>
+
+<h2>2 · Transfer &amp; fee decision flow <span class="ar" style="display:inline">· تدفق التحويل والرسوم</span></h2>
+<div class="flow" id="f2"></div>
+<div class="branch">
+  <div class="bx"><h4 style="color:var(--ok)">Member (P2P)</h4>Phone, email or @user ID found in the member registry → green banner “Transfer fee: 0.00 — Free &amp; instant”. No fee rows.<span class="ar">عضو في التطبيق: رسالة خضراء «مجاني وفوري بالكامل».</span></div>
+  <div class="bx"><h4 style="color:#e0a43a">Not a member</h4>Amber notice: free transfers are for members only → use Local / International with a bank account.<span class="ar">غير مسجّل: يُوجَّه إلى التحويل البنكي.</span></div>
+  <div class="bx"><h4>External bank</h4>Transparent breakdown before confirming: transfer fee %, fixed bank charge, total fees, total debited, amount the recipient gets, live rate.<span class="ar">بنك خارجي: تفصيل شفاف للرسوم قبل التأكيد.</span></div>
+</div>
+
+<h2>3 · Screen wireframes <span class="ar" style="display:inline">· مخططات الشاشات</span></h2>
+<div class="grid" id="wf"></div>
+
+<h2>4 · Proposed timeline for the first draft <span class="ar" style="display:inline">· الجدول الزمني المقترح</span></h2>
+<p class="s">Proposed — to be confirmed once the client approves the scope. Working weeks, one designer plus review time.<span class="ar">مقترح — يُثبَّت بعد اعتماد النطاق من العميل.</span></p>
+<table>
+<thead><tr><th>Phase · المرحلة</th><th>Output · المخرجات</th><th>Duration</th></tr></thead>
+<tbody>
+<tr><td>A · Wireframes &amp; flows<small>المخططات والتدفقات</small></td><td>All screens in section 3 as Figma wireframes; onboarding and transfer flows</td><td>Week 1</td></tr>
+<tr><td>B · Design system<small>نظام التصميم</small></td><td>Navy / gold palette, type scale (Latin + Arabic + other scripts), components, RTL rules, light-weight motion spec</td><td>Week 2</td></tr>
+<tr><td>C · High-fidelity UI<small>تصاميم عالية الدقة</small></td><td>All screens, three card tiers, Sovereign dark theme, receipt, panic centre</td><td>Weeks 2–3</td></tr>
+<tr><td>D · Interactive prototype<small>النموذج التفاعلي</small></td><td>Figma prototype linking every screen, plan switching with prices, free P2P transfer demo</td><td>Week 3</td></tr>
+<tr><td><b>First draft for review</b><small><b>المسودة الأولى للمراجعة</b></small></td><td>Wireframes + hi-fi + prototype delivered for discussion</td><td><b>End of week 3 (about 15 working days)</b></td></tr>
+<tr><td>E · Revision round<small>جولة التعديلات</small></td><td>Client feedback applied, handoff notes</td><td>Week 4</td></tr>
+</tbody></table>
+<div class="gantt" id="gt"></div>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const N=(t,a,c='')=>`<div class="n ${c}">${t}<span class="ar">${a}</span></div>`,A='<span class="a">→</span>';
+$('#f1').innerHTML=[N('Splash + language','الترحيب واللغة'),N('Identity type','نوع الهوية'),N('Scan document(s)','مسح الوثيقة'),N('Bank card scan','مسح البطاقة البنكية','opt'),N('Face / selfie','التحقق من الوجه'),N('Create PIN','إنشاء PIN'),N('Dashboard','الرئيسية','ok')].join(A);
+$('#f2').innerHTML=[N('Send','إرسال'),N('Enter recipient','إدخال المستلم'),N('Member?','عضو؟','ex'),N('Free banner / fee box','مجاني / رسوم'),N('Confirm','تأكيد'),N('Official receipt','الإيصال','ok'),N('PDF · Share','PDF · مشاركة')].join(A);
+const S=[
+['1 · Splash & language','الترحيب',[['h','Younis & Co.'],['img','logo + fast motion'],['btn2','🌐 Language'],['btn','Get started']]],
+['2 · Identity type','نوع الهوية',[['h','Verify your identity'],['e','Passport'],['e','National ID'],['e','Residency + Passport (scan residency first)']]],
+['3 · Bank card (optional)','البطاقة (اختياري)',[['skip','Skip this step / تخطي'],['h','Link your bank card'],['img','card frame'],['btn','Scan card'],['btn2','Skip this step / تخطي']]],
+['4 · Face verification','التحقق الحيوي',[['h','Face ID / Selfie'],['face','◯'],['btn','Start']]],
+['5 · App lock','قفل التطبيق',[['h','Enter PIN or Face ID'],['e','● ● ○ ○'],['e','1 2 3 / 4 5 6 / 7 8 9'],['btn2','Face ID']]],
+['6 · Dashboard','الرئيسية',[['chips','AED|EUR|CHF|SEK|NOK|DKK|PLN|＋'],['e','Total balance'],['row','Add Money|Send'],['row','Exchange|Request'],['e','Local Bills & Services'],['e','Recent transactions']]],
+['7 · Instant top-up','الشحن الفوري',[['h','Add money'],['e','Amount'],['btn','Apple Pay'],['btn2','Google Pay'],['e','Card number']]],
+['8 · Link a bank','ربط بنك',[['h','Search any bank'],['e','🔍 type a bank name'],['e','◯ Bank A · DE'],['e','◯ Bank B · AE']]],
+['9 · Bills & services','الفواتير',[['h','Local Bills'],['e','⚡ DEWA'],['e','💧 SEWA'],['e','🛂 Residency · 🚦 Fines'],['e','🛣️ Salik top-up']]],
+['10 · Send — member','إرسال لعضو',[['chips','Europe→UAE|UAE→Europe|Global'],['e','From · Recipient'],['e','Live rate 1 EUR = 4.1 AED'],['free','Transfer fee: 0.00 — Free & instant'],['e','↻ Schedule as recurring [toggle]'],['btn','Send']]],
+['11 · Send — external bank','إرسال لبنك خارجي',[['e','IBAN · Recipient name'],['e','Live rate'],['row','Transfer fee|1.2%'],['row','Fixed bank charge|1.50'],['row','Total fees|…'],['row','Recipient gets|…'],['btn','Confirm']]],
+['12 · Official receipt','الإيصال الرسمي',[['h','✓ Successful — instant'],['row','Transaction ID|TX-…'],['row','Reference|YC…'],['e','Sender · Recipient + accounts'],['e','Sent / received · currencies · date (seconds)'],['btn','Download PDF'],['btn2','Share']]],
+['13 · Card shop','متجر البطاقات',[['card','Standard · Free'],['card v','VIP · €6.99 / month'],['card k','Sovereign METAL · €29.99 / month'],['btn','Choose']]],
+['14 · Sovereign (dark)','الثيم المظلم',[['h','Premium Dark Theme'],['card k','Metal card · matte black / gold'],['e','Dashboard in dark'],['btn','★ VIP Concierge']],1],
+['15 · Security centre','مركز الأمان',[['h','Security & Support'],['red','FREEZE ACCOUNT & CARDS NOW'],['e','Live chat 24/7'],['e','Call · Email']]]];
+$('#wf').innerHTML=S.map(([t,a,els,d])=>`<div class="ph${d?' dark':''}"><div class="cap">${t}<span class="ar">${a}</span></div>${els.map(([k,x])=>{
+ if(k==='chips')return`<div class="e chips">${x.split('|').map(c=>`<i>${c}</i>`).join('')}</div>`;
+ if(k==='row'){const[p,q]=x.split('|');return`<div class="e row"><span>${p}</span><b>${q}</b></div>`}
+ return`<div class="e ${k.replace('e','e').trim()==='e'?'':k}">${x}</div>`}).join('')}</div>`).join('');
+const G=[['A · Wireframes',1,5],['B · Design system',6,10],['C · High-fidelity',8,15],['D · Prototype',13,15],['E · Revisions',16,20]];
+$('#gt').style.gridTemplateColumns='150px repeat(20,1fr)';
+$('#gt').innerHTML='<div></div>'+Array.from({length:20},(_,i)=>`<div class="h">${i+1}</div>`).join('')+G.map(([n,s,e])=>`<div class="l">${n}</div>`+Array.from({length:20},(_,i)=>i+1>=s&&i+1<=e?'<div class="bar"></div>':'<div></div>').join('')).join('')+'<div class="l" style="grid-column:1/-1;color:var(--mut)">Working days · أيام العمل</div>';
+$('#dir').onclick=()=>{const h=document.documentElement;h.dir=h.dir==='rtl'?'ltr':'rtl'};
+</script>
+</body>
+</html>

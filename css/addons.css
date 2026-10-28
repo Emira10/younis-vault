@@ -1,0 +1,45 @@
+/* Younis & Co. — addons.css (v15): additions only. Nothing in the other CSS files was edited.
+   To disable all additions: remove the addons.css <link> and the addons.js <script> from index.html. */
+
+/* ---- fast first paint: system fonts until web fonts arrive ---- */
+body{font-family:Inter,Cairo,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Arabic","Noto Sans Hebrew",sans-serif}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* ---- send screen additions ---- */
+.ad-box{margin-top:14px;border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(255,255,255,.02)}
+.ad-box label{display:block;margin-top:10px}
+.ad-corr{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.ad-corr button{font:inherit;font-size:13px;color:var(--gold2);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+.ad-corr button.on{background:rgba(212,175,55,.14);border-color:var(--gold2)}
+.ad-row{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-size:14px}
+.ad-row span{color:var(--mut)}
+.ad-rate{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;color:var(--ink)}
+.ad-rate i{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
+.ad-rate small{color:var(--mut)}
+.ad-warn{border:1px solid #e0a43a;color:#e0a43a;border-radius:12px;padding:10px 14px;margin-top:12px;font-weight:600}
+.ad-who{color:var(--mut);font-size:13px;margin-top:6px}
+
+/* ---- bank search ---- */
+.ad-bk{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--line);border-radius:12px;margin-top:8px;cursor:pointer}
+.ad-bk svg{width:36px;height:36px;flex:none}
+.ad-bk small{color:var(--mut)}
+.ad-bk em{margin-inline-start:auto;font-style:normal;font-size:12px;border:1px solid var(--line);border-radius:8px;padding:2px 8px;color:var(--mut)}
+.ad-linked{margin-top:12px;color:var(--ok);font-size:14px}
+
+/* ---- language picker ---- */
+.ad-lsearch{width:100%;margin-bottom:10px}
+
+/* ---- KYC residency add-on ---- */
+.ad-res{display:flex;align-items:center;gap:10px;margin-top:12px}
+.ad-res input{width:auto}
+.ad-kbn{margin-bottom:14px}
+
+/* ---- add-wallet picker ---- */
+.ad-cur{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:12px;max-height:50vh;overflow:auto}
+.ad-cur button{font:inherit;color:var(--ink);background:var(--navy3);border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;text-align:center}
+.ad-cur b{display:block;color:var(--gold2)}
+
+/* ---- brief mode: hides screens that are not in the original brief (off by default) ---- */
+body.brief nav button[data-v="vaults"],body.brief nav button[data-v="insights"],
+body.brief #more button[data-v="vaults"],body.brief #more button[data-v="insights"],
+body.brief #tabbar button[data-v="vaults"]{display:none}

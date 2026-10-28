@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050d24">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Younis &amp; Co. — Digital Wallet</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Younis">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/premium.css">
+<link rel="stylesheet" href="css/draft.css">
+<link rel="stylesheet" href="css/addons.css">
+<link rel="stylesheet" href="css/fixes.css">
+<link rel="stylesheet" href="css/v18.css">
+</head>
+<body>
+<div id="splash" aria-hidden="true"><div class="sp-logo"><img src="icons/logo.png" alt=""></div><p>Trust in Every Detail.</p></div>
+<script>try{if(sessionStorage.getItem('yc_splash'))document.getElementById('splash').remove();else sessionStorage.setItem('yc_splash','1')}catch(e){}</script>
+<header id="mbar"><img src="icons/logo.png" alt="Younis &amp; Co."><button class="btn ghost" id="lang2" aria-label="Language / اللغة"></button></header>
+<div class="app">
+<aside>
+  <div class="logo"><img src="icons/logo.png" alt="Younis &amp; Co." width="200"><small class="tag">International Wealth &amp; Fintech Hub</small></div>
+  <nav aria-label="Main">
+    <button class="on" data-v="wallet" data-i18n="nav_wallet"></button>
+    <button data-v="cards" data-i18n="nav_cards"></button>
+    <button data-v="send" data-i18n="nav_send"></button>
+    <button data-v="history" data-i18n="nav_history"></button>
+    <button data-v="vaults" data-i18n="nav_vaults"></button>
+    <button data-v="insights" data-i18n="nav_insights"></button>
+    <button data-v="kyc" data-i18n="nav_kyc"></button>
+    <button data-v="settings" data-i18n="nav_settings"></button>
+    <button data-v="design" data-i18n="nav_design"></button>
+  </nav>
+  <div class="kyc"><div class="row"><span data-i18n="kyc_t"></span><b style="color:var(--gold2)" id="kycPct"></b></div><i><u id="kycBar"></u></i><small style="color:var(--mut);display:block;margin-top:8px" data-i18n="kyc_h"></small></div>
+  <button class="btn ghost" id="lang" aria-label="Language / اللغة">عربي</button>
+</aside>
+<main>
+
+<section class="view on" id="wallet">
+  <div class="top"><div><h1 id="hello"></h1><p data-i18n="w_total"></p></div><div><div class="total" id="total"></div><div class="seg" id="baseSeg" style="margin-top:8px"><button data-b="SEK">SEK</button><button data-b="EUR">EUR</button><button data-b="AED">AED</button><button data-b="USD">USD</button></div></div></div>
+  <div class="panel hero"><svg id="spark" viewBox="0 0 600 90" preserveAspectRatio="none" role="img" aria-hidden="true"></svg><div class="hm"><b id="sparkDelta"></b><small data-i18n="px_30d"></small></div></div>
+  <div class="btns" style="margin-bottom:18px"><button class="btn" data-go="send" data-i18n="w_send"></button><button class="btn" data-go="topup" data-i18n="tu_title"></button><button class="btn ghost" data-go="receive" data-i18n="rc_title"></button><button class="btn ghost" data-go="exch" data-i18n="x_title"></button></div>
+  <div class="grid g3" id="wallets"></div>
+  <button class="btn ghost" id="moreW" style="margin-top:12px" hidden></button>
+  <div class="panel" style="margin-top:18px"><div class="row" style="margin-bottom:6px"><h3 style="font-size:24px" data-i18n="w_recent"></h3><div class="btns"><button class="btn ghost" data-go="history" data-i18n="w_all"></button><button class="btn ghost" data-go="send" data-i18n="w_send"></button></div></div><table id="tx"></table></div>
+</section>
+
+<section class="view" id="cards">
+  <div class="top"><div><h1 data-i18n="c_title"></h1><p data-i18n="c_sub"></p></div></div>
+  <div class="tiers" id="tiers"></div>
+  <div class="grid g2">
+    <div id="cardArt"></div>
+    <div class="panel">
+      <h3 style="font-size:26px" id="cName"></h3><p style="color:var(--mut)" id="cDesc"></p>
+      <div class="seg" id="cForm" style="margin-top:12px"><button data-f="virtual" data-i18n="cf_virtual"></button><button data-f="plastic" data-i18n="cf_plastic"></button></div>
+      <div class="seg" id="cNet" style="margin-top:8px"><button data-n="VISA">Visa</button><button data-n="MC">Mastercard</button></div>
+      <div class="btns" style="margin-top:12px"><button class="btn ghost" id="cShow"></button><button class="btn ghost" id="cCopy" data-i18n="rc_copy"></button><button class="btn" id="cOrder" data-i18n="c_ord"></button></div>
+      <div class="sw" style="margin-top:14px"><span data-i18n="c_freeze"></span><button class="tg" role="switch" id="freeze" data-i18n-aria="c_freeze"></button></div>
+      <div class="sw"><span data-i18n="c_online"></span><button class="tg" role="switch" id="online" data-i18n-aria="c_online"></button></div>
+      <div class="sw"><span data-i18n="c_nfc"></span><button class="tg" role="switch" id="nfc" data-i18n-aria="c_nfc"></button></div>
+      <div class="sw"><span data-i18n="c_pin"></span><button class="btn ghost" id="pinBtn" data-i18n="c_pinBtn"></button></div>
+      <div class="msg" id="cMsg" role="status"></div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="send">
+  <div class="top"><div><h1 data-i18n="s_title"></h1><p data-i18n="s_sub"></p></div></div>
+  <div class="panel" style="max-width:640px">
+    <div class="seg" id="mode"><button class="on" data-m="p2p" data-i18n="s_p2p"></button><button data-m="local" data-i18n="s_local"></button><button data-m="intl" data-i18n="s_intl"></button></div>
+    <label id="toLbl" for="to"></label><input id="to" dir="auto">
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px"><div><label for="amt" data-i18n="s_amt"></label><input id="amt" type="number" min="1" step="0.01" placeholder="0.00"></div><div><label for="from" data-i18n="s_from"></label><select id="from"></select></div></div>
+    <p style="color:var(--mut);font-size:13px;margin-top:12px" id="fee"></p>
+    <button class="btn" id="sendBtn" style="margin-top:16px" data-i18n="s_send"></button>
+    <div class="msg" id="sMsg" role="status"></div>
+  </div>
+</section>
+
+<section class="view" id="history">
+  <div class="top"><div><h1 data-i18n="h_title"></h1><p data-i18n="h_sub"></p></div><div class="btns"><button class="btn ghost" id="csv" data-i18n="h_csv"></button><button class="btn" id="print" data-i18n="h_print"></button></div></div>
+  <div class="panel">
+    <div class="printonly"><h2 style="font-size:26px">Younis &amp; Co. — <span data-i18n="h_stmt"></span></h2><p id="pHead"></p></div>
+    <div class="filters">
+      <div><label for="hq" data-i18n="h_q"></label><input id="hq" type="search" data-i18n-ph="h_qph" dir="auto"></div>
+      <div><label for="hc" data-i18n="h_cur"></label><select id="hc"><option value="" data-i18n="h_allc"></option><option>SEK</option><option>USD</option><option>EUR</option><option>GBP</option><option>AED</option><option>NOK</option><option>DKK</option><option>TRY</option></select></div>
+      <div><label for="hd" data-i18n="h_type"></label><select id="hd"><option value="all" data-i18n="h_all"></option><option value="in" data-i18n="h_in"></option><option value="out" data-i18n="h_out"></option></select></div>
+      <div><label for="hf" data-i18n="h_from"></label><input id="hf" type="date"></div>
+      <div><label for="ht" data-i18n="h_to"></label><input id="ht" type="date"></div>
+    </div>
+    <div class="hbar"><span id="hCount"></span><span id="hTot"></span><button class="btn ghost" id="hClr" style="padding:6px 14px" data-i18n="h_clear"></button></div>
+    <div class="scroll"><table class="h"><thead><tr><th data-i18n="h_date"></th><th data-i18n="h_desc"></th><th data-i18n="h_cat"></th><th data-i18n="h_amt"></th></tr></thead><tbody id="hBody"></tbody></table></div>
+  </div>
+</section>
+
+<section class="view" id="vaults">
+  <div class="top"><div><h1 data-i18n="v_title"></h1><p data-i18n="v_sub"></p></div></div>
+  <div class="panel" style="margin-bottom:18px;max-width:640px"><div class="grid" style="grid-template-columns:1fr 1fr;gap:12px"><div><label for="vAmt" data-i18n="s_amt"></label><input id="vAmt" type="number" min="1" step="0.01" value="1000"></div><div><label for="vCur" data-i18n="s_from"></label><select id="vCur"></select></div></div></div>
+  <div class="grid g3" id="vaultList"></div>
+  <div class="panel" style="margin-top:18px;max-width:640px"><h3 style="font-size:24px" data-i18n="v_new"></h3>
+    <div class="grid" style="grid-template-columns:2fr 1fr;gap:12px"><div><label for="vn" data-i18n="v_name"></label><input id="vn" data-i18n-ph="v_ph" dir="auto"></div><div><label for="vt" data-i18n="v_tgt"></label><input id="vt" type="number" min="1"></div></div>
+    <button class="btn" id="vAdd" style="margin-top:16px" data-i18n="v_create"></button></div>
+</section>
+
+<section class="view" id="insights">
+  <div class="top"><div><h1 data-i18n="i_title"></h1><p data-i18n="i_sub"></p></div></div>
+  <div class="grid g2">
+    <div class="panel"><h3 style="font-size:24px" data-i18n="i_cats"></h3><div id="cats"></div></div>
+    <div class="panel"><h3 style="font-size:24px" data-i18n="i_week"></h3><svg id="week" viewBox="0 0 320 170" width="100%" role="img"></svg><p style="color:var(--mut);font-size:13px" id="tip"></p></div>
+  </div>
+</section>
+
+<section class="view" id="settings">
+  <div class="top"><div><h1 data-i18n="st_title"></h1><p data-i18n="st_sub"></p></div></div>
+  <div class="grid g2">
+    <div class="panel"><h3 style="font-size:24px" data-i18n="st_prof"></h3>
+      <label for="sName" data-i18n="st_name"></label><input id="sName" autocomplete="name" dir="auto">
+      <label for="sEmail" data-i18n="st_email"></label><input id="sEmail" type="email" dir="ltr">
+      <label for="sPhone" data-i18n="st_phone"></label><input id="sPhone" type="tel" dir="ltr">
+      <button class="btn" id="sSave" style="margin-top:16px" data-i18n="st_save"></button><div class="msg" id="stMsg" role="status"></div>
+    </div>
+    <div class="panel"><h3 style="font-size:24px" data-i18n="st_sec"></h3>
+      <div class="sw"><div><div data-i18n="st_2fa"></div><small style="color:var(--mut)" data-i18n="st_2fad"></small></div><button class="tg" role="switch" id="tfa" data-i18n-aria="st_2fa"></button></div>
+      <h3 style="font-size:24px;margin-top:22px" data-i18n="st_notif"></h3>
+      <div class="sw"><span data-i18n="n_pay"></span><button class="tg" role="switch" id="nPay" data-i18n-aria="n_pay"></button></div>
+      <div class="sw"><span data-i18n="n_sec"></span><button class="tg" role="switch" id="nSec" data-i18n-aria="n_sec"></button></div>
+      <div class="sw"><span data-i18n="n_promo"></span><button class="tg" role="switch" id="nPromo" data-i18n-aria="n_promo"></button></div>
+    </div>
+    <div class="panel"><h3 style="font-size:24px" data-i18n="st_lang"></h3><div class="seg" id="langSeg" style="margin-top:14px"><button data-l="en">English</button><button data-l="ar">العربية</button><button data-l="sv">Svenska</button></div></div>
+    <div class="panel"><h3 style="font-size:24px" data-i18n="st_app"></h3><p style="color:var(--mut);margin:8px 0 14px" data-i18n="st_apph"></p><button class="btn" id="inst" disabled data-i18n="st_inst"></button>
+      <div style="margin-top:22px" class="btns"><button class="btn ghost" id="reset" data-i18n="st_reset"></button><button class="btn ghost" id="logout" data-i18n="a_out"></button></div></div>
+  </div>
+</section>
+
+<section class="view" id="topup">
+  <div class="top"><div><h1 data-i18n="tu_title"></h1><p data-i18n="tu_sub"></p></div></div>
+  <div class="panel" style="max-width:640px"><div class="seg" id="tuM"><button class="on" data-m="card" data-i18n="tu_card"></button><button data-m="bank" data-i18n="tu_bank"></button></div>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px"><div><label for="tuAmt" data-i18n="s_amt"></label><input id="tuAmt" type="number" min="1" step="0.01" placeholder="0.00"></div><div><label for="tuTo" data-i18n="x_to"></label><select id="tuTo"></select></div></div>
+    <button class="btn" id="tuBtn" style="margin-top:16px" data-i18n="tu_title"></button><div class="msg" id="tuMsg" role="status"></div></div>
+</section>
+<section class="view" id="receive">
+  <div class="top"><div><h1 data-i18n="rc_title"></h1><p data-i18n="rc_sub"></p></div></div>
+  <div class="panel" style="max-width:640px"><small style="color:var(--mut)" data-i18n="rc_holder"></small><div style="font-size:18px;margin-bottom:8px" id="rcHolder"></div><div id="rcList"></div></div>
+</section>
+<section class="view" id="exch">
+  <div class="top"><div><h1 data-i18n="x_title"></h1><p data-i18n="x_sub"></p></div></div>
+  <div class="panel" style="max-width:640px"><div class="grid" style="grid-template-columns:1fr 1fr;gap:12px"><div><label for="xFrom" data-i18n="s_from"></label><select id="xFrom"></select></div><div><label for="xTo" data-i18n="x_to"></label><select id="xTo"></select></div></div>
+    <label for="xAmt" data-i18n="s_amt"></label><input id="xAmt" type="number" min="1" step="0.01" placeholder="0.00"><p style="color:var(--mut);font-size:13px;margin-top:12px" id="xInfo"></p>
+    <button class="btn" id="xBtn" style="margin-top:16px" data-i18n="x_go"></button><div class="msg" id="xMsg" role="status"></div></div>
+</section>
+
+<section class="view" id="kyc">
+  <div class="top"><div><h1 data-i18n="k_title"></h1><p data-i18n="k_sub"></p></div></div>
+  <div class="grid g2">
+    <div class="panel"><ol class="steps" id="kycSteps"></ol></div>
+    <div class="panel"><div id="kycForm">
+      <div data-kp="1">
+        <label for="kName" data-i18n="k_name"></label><input id="kName" autocomplete="name" dir="auto">
+        <label for="kEmail" data-i18n="k_email"></label><input id="kEmail" type="email" dir="ltr">
+        <label for="kDob" data-i18n="k_dob"></label><input id="kDob" type="date" autocomplete="bday">
+        <div class="navrow"><span></span><button class="btn" data-kn="2" data-i18n="k_next"></button></div>
+      </div>
+      <div data-kp="2" hidden>
+        <label for="kDoc" data-i18n="k_doc"></label><select id="kDoc"><option value="pass" data-i18n="k_pass"></option><option value="id" data-i18n="k_idc"></option><option value="digi" data-i18n="k_digi"></option></select>
+        <div class="ups">
+          <div><label class="up" for="kId"><img id="kIdImg" alt="" hidden><span data-i18n="k_id"></span><small data-i18n="k_idh"></small></label><input class="vh" id="kId" type="file" accept="image/*" capture="environment"></div>
+          <div><label class="up" for="kSelf"><img id="kSelfImg" alt="" hidden><span data-i18n="k_self"></span><small data-i18n="k_selfh"></small></label><input class="vh" id="kSelf" type="file" accept="image/*" capture="user"></div>
+        </div><small id="kFile" style="color:var(--mut)"></small>
+        <div class="navrow"><button class="btn ghost" data-kn="1" data-i18n="k_back"></button><button class="btn" data-kn="3" data-i18n="k_next"></button></div>
+      </div>
+      <div data-kp="3" hidden>
+        <div class="rc-slip" id="kSum"></div>
+        <label class="chk"><input type="checkbox" id="kConsent"><span data-i18n="k_consent"></span></label>
+        <small style="color:var(--mut);display:block;margin-top:10px" data-i18n="k_note"></small>
+        <div class="navrow"><button class="btn ghost" data-kn="2" data-i18n="k_back"></button><button class="btn" id="kSubmit" data-i18n="k_submit"></button></div>
+      </div></div>
+      <div id="kReview" hidden><h3 id="kRevT" style="font-size:24px"></h3><ul id="kChecks"><li data-i18n="k_c1"></li><li data-i18n="k_c2"></li><li data-i18n="k_c3"></li></ul><p id="kVer" style="color:var(--mut)"></p><button class="btn" id="kOpen" data-i18n="k_open" hidden></button></div>
+      <div class="msg" id="kMsg" role="status"></div></div>
+  </div>
+</section>
+
+<section class="view" id="design">
+  <div class="top"><div><h1 data-i18n="ds_title"></h1><p data-i18n="ds_sub"></p></div></div>
+  <div class="grid g2">
+    <div class="panel"><h3 data-i18n="ds_colors"></h3><div class="sws">
+      <div><i style="background:#050d24"></i>Navy<br><small>#050D24</small></div><div><i style="background:#12275c"></i>Navy 3<br><small>#12275C</small></div>
+      <div><i style="background:#d4af37"></i>Gold<br><small>#D4AF37</small></div><div><i style="background:#f3d97a"></i>Gold 2<br><small>#F3D97A</small></div>
+      <div><i style="background:#5fcf9a"></i>Success<br><small>#5FCF9A</small></div><div><i style="background:#ff7b7b"></i>Error<br><small>#FF7B7B</small></div></div></div>
+    <div class="panel"><h3 data-i18n="ds_type"></h3>
+      <div class="serif" style="font-size:40px;line-height:1.1">Cormorant Garamond 40</div><div class="serif" style="font-size:24px">Heading 24 · 600</div><p style="margin-top:8px">Inter 15 / 1.5 — Body text · Cairo (Arabic)</p></div>
+    <div class="panel"><h3 data-i18n="ds_btn"></h3><div class="btns" style="margin-top:12px"><button class="btn">Primary</button><button class="btn ghost">Secondary</button><button class="btn" disabled>Disabled</button></div></div>
+    <div class="panel"><h3 data-i18n="ds_ctl"></h3><label>Input</label><input placeholder="0.00"><div class="sw"><span>Toggle</span><button class="tg" role="switch" aria-checked="true" aria-label="Toggle" onclick="this.setAttribute('aria-checked',this.getAttribute('aria-checked')!=='true')"></button></div></div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<dialog id="dlg"><h3 style="font-size:26px" data-i18n="p_title"></h3><label for="p1" data-i18n="p_new"></label><input id="p1" class="pin" inputmode="numeric" maxlength="4" type="password"><label for="p2" data-i18n="p_conf"></label><input id="p2" class="pin" inputmode="numeric" maxlength="4" type="password"><div class="msg" id="pMsg" role="alert"></div><div class="row" style="margin-top:12px"><button class="btn ghost" id="pX" data-i18n="p_x"></button><button class="btn" id="pOk" data-i18n="p_ok"></button></div></dialog>
+<datalist id="bn"></datalist>
+<dialog id="cdlg"><h3 style="font-size:26px" data-i18n="cf_title"></h3><p id="cfBody" style="margin:12px 0"></p><div class="row"><button class="btn ghost" id="cfX" data-i18n="p_x"></button><button class="btn" id="cfOk" data-i18n="cf_ok"></button></div></dialog>
+<div id="auth" style="display:none"><div class="panel" id="aBox"><img src="icons/logo.png" alt="Younis &amp; Co." style="display:block;width:130px;margin:0 auto 6px"><small class="tag" style="margin-bottom:12px">International Wealth &amp; Fintech Hub</small>
+  <div class="seg" id="aTabs"><button class="on" data-a="login" data-i18n="a_login"></button><button data-a="reg" data-i18n="a_reg"></button></div>
+  <div id="aBody"></div>
+  <div class="msg" id="aMsg" role="alert"></div>
+  <small style="color:var(--mut)" id="aDemo"></small>
+  <div class="btns" style="margin-top:12px"><button class="btn ghost" id="aReset" data-i18n="a_reset"></button><button class="btn ghost" id="aLang"></button></div></div></div>
+<dialog id="rcpt" class="rcpt"></dialog>
+<div id="more" hidden><div class="sheet" role="dialog" aria-modal="true" aria-label="Menu"><div class="grab"></div>
+<button data-v="history" data-i18n="nav_history"></button><button data-v="insights" data-i18n="nav_insights"></button><button data-v="kyc" data-i18n="nav_kyc"></button><button data-v="settings" data-i18n="nav_settings"></button><button data-v="design" data-i18n="nav_design"></button></div></div>
+<nav id="tabbar" aria-label="Tabs"><button data-v="wallet" data-i18n="nav_wallet"></button><button data-v="cards" data-i18n="nav_cards"></button><button data-v="send" data-i18n="nav_send"></button><button data-v="vaults" data-i18n="nav_vaults"></button><button id="moreBtn" data-i18n="px_more"></button></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/api.js"></script>
+<script src="js/v18data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+<script src="js/features.js"></script>
+<script src="js/premium.js"></script>
+<script src="js/kyc.js"></script>
+<script src="js/draft.js"></script>
+<script src="js/addons.js"></script>
+<script src="js/fixes.js"></script>
+<script src="js/v18.js"></script>
+</body>
+</html>

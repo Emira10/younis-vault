@@ -1,0 +1,13 @@
+/* Younis & Co. — v18.css
+   Additions only. Hides the sections you asked to remove; their code in draft.js / addons.js is NOT touched.
+   To bring any of them back, delete its selector from the first rule. */
+#dx [data-t="bills"],   /* Bills & Services tile */
+#dx [data-t="ob"],      /* Onboarding flow (registration journey) tile */
+#bills,                 /* Bills & Services screen */
+#reqB                  /* "Request" button in the wallet */
+{display:none!important}
+
+/* Start screen: Log in + Create account */
+.v18-start{display:flex;flex-direction:column;gap:10px;max-width:320px;width:100%;margin:6px auto 0}
+.v18-start .btn{width:100%}
+.v18-find{width:100%;margin-top:10px}
